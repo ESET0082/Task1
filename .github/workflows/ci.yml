@@ -1,0 +1,25 @@
+name: CI - Basic GitHub Actions Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out repository
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Step 2: Print Hello
+      - name: Print Hello Message
+        run: echo "Hello GitHub Actions"
+
+      # Step 3: Print current date and branch name (no Python)
+      - name: Print Date and Branch
+        run: |
+          echo "Current Date: $(date)"
+          echo "Current Branch: ${GITHUB_REF_NAME}"
